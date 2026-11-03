@@ -40,4 +40,4 @@ Supabase 무료 프로젝트가 접속 없이 정지되지 않도록 `keepalive.
 
 ## 라이선스
 
-코드의 라이선스는 아직 정하지 않았습니다. 정해지면 `LICENSE` 파일로 추가합니다.
+코드의 라이선스는 아직 정하지 않았습니다. 정해지면 `LICENSE` 파일로 추가합니다. 아이콘 등 제3자 자료의 고지는 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)에 있습니다.
