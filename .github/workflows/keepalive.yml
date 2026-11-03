@@ -1,0 +1,26 @@
+# Supabase 무료 프로젝트가 접속 없이 정지되지 않도록 3일에 한 번 조회 함수를 호출한다.
+# 응답에 자료가 없으면 실패하므로 Actions 탭에서 장애도 알 수 있다.
+# 공개 저장소는 60일 동안 활동이 없으면 GitHub가 예약 실행을 끈다(알림 메일이 온다). 그때는 Actions 탭에서 다시 켠다.
+name: Keep Supabase awake
+
+on:
+  schedule:
+    - cron: '23 3 */3 * *' # UTC 기준 매월 1·4·7… 일 03:23
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: lookup_signs 호출
+        env:
+          SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
+          SUPABASE_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+        run: |
+          body=$(curl -sS --fail-with-body --max-time 30 -X POST "$SUPABASE_URL/rest/v1/rpc/lookup_signs" \
+            -H "apikey: $SUPABASE_KEY" -H "Content-Type: application/json" \
+            -d '{"words":["안녕하세요"]}')
+          echo "$body" | grep -q '"word"' || { echo "응답에 자료가 없습니다: $body"; exit 1; }
+          echo "정상 응답"
