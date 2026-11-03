@@ -36,6 +36,8 @@ npm run dev
 
 `main`에 푸시하면 GitHub Actions가 빌드해 Pages에 배포합니다. 저장소 Settings에서 Pages Source를 "GitHub Actions"로 두고, Actions 변수 `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`를 등록하세요. anon 키는 공개값이며 보안은 Supabase의 RLS와 `lookup_signs` 함수가 맡습니다.
 
+Supabase 무료 프로젝트가 접속 없이 정지되지 않도록 `keepalive.yml`이 3일에 한 번 `lookup_signs`를 호출합니다. 공개 저장소는 60일 동안 활동이 없으면 GitHub가 예약 실행을 끄므로, 알림 메일을 받으면 Actions 탭에서 다시 켜 주세요.
+
 ## 라이선스
 
 코드의 라이선스는 아직 정하지 않았습니다. 정해지면 `LICENSE` 파일로 추가합니다.
