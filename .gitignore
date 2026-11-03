@@ -1,0 +1,22 @@
+node_modules/
+dist/
+build/
+.vite/
+.npm/
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.log
+
+# 수어 자료 덤프가 실수로 올라가지 않게 막는다(자료는 Supabase에만 둔다)
+data/
+*.db
+*.sqlite
+*.sqlite3
+all_records.json
+
+# 개인 인증키는 외부 공유 금지
+.env
+.env.local
+.env.*.local
