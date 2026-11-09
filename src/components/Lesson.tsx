@@ -26,7 +26,6 @@ export default function Lesson({ stationId, completed, onComplete, onOpen, onClo
     setStep(target); setWordIndex(0); setRate(target === 'follow' ? 0.5 : 1); setChoice(null); setResult(null)
   }
   useEffect(() => { go('watch') }, [stationId])
-  useEffect(() => { if (step === 'done' && !completed.has(station.id)) onComplete(station.id) }, [step, station.id])
   // 원본 영상을 합치지 않고 낱말 순서대로 하나씩 재생한다
   const ended = () => {
     if (wordIndex < words.length - 1) { setWordIndex(wordIndex + 1); return true }
@@ -44,7 +43,9 @@ export default function Lesson({ stationId, completed, onComplete, onOpen, onClo
     watch: station.meaning,
     follow: `0.5× 속도로 보며 손 모양과 표정을 같이 따라 해요. ${station.tip}`,
     choose: '영상을 보고 알맞은 답을 골라요.',
-    done: line.kind === 'letter' ? '익힌 글자로 표시했어요.' : '익힌 표현으로 표시했어요.',
+    done: completed.has(station.id)
+      ? (line.kind === 'letter' ? '익힌 글자로 표시했어요.' : '익힌 표현으로 표시했어요.')
+      : '충분히 익혔다면 아래 버튼으로 익힘을 표시해요.',
   }[step]
   const routeH = (all: boolean) => <ol className="route-h" aria-label="낱말 순서">
     {words.map((item, i) => {
@@ -130,6 +131,7 @@ export default function Lesson({ stationId, completed, onComplete, onOpen, onClo
           ? <button type="button" className="btn btn-primary btn-block" onClick={() => go('done')}>계속하기</button>
           : <button type="button" className="btn btn-primary btn-block" onClick={check}>확인</button>)}
         {step === 'done' && <>
+          {!completed.has(station.id) && <button type="button" className="btn btn-primary" onClick={() => onComplete(station.id)}>익힘으로 표시</button>}
           {next && <button type="button" className="btn btn-primary" onClick={() => onOpen(next.id)}>다음 역으로</button>}
           <button type="button" className="btn" onClick={onClose}>노선도로 돌아가기</button>
         </>}
