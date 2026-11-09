@@ -187,6 +187,7 @@ main{flex:1;width:100%;max-width:1120px;margin:0 auto;padding:0 16px calc(var(--
   .learn{display:grid;grid-template-columns:minmax(300px,360px) 1fr;gap:32px;align-items:start}
   .learn-map{position:sticky;top:var(--header-h);max-height:calc(100dvh - var(--header-h));overflow-y:auto;padding-right:24px;border-right:1px solid var(--rule)}
   .learn-lesson{max-width:640px}
+  .page,.view-search main>.attribution{margin-inline:auto;width:100%;max-width:720px} /* 사이드 열이 없는 화면은 가운데 한 열 */
   .lesson{min-height:auto}
   .lesson-close{display:none}
   .lesson-bar{min-height:44px}
