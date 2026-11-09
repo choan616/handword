@@ -32,6 +32,19 @@ export const lessons: Lesson[] = [
   { id: 'place-hospital', topic: '이동', title: '아플 때 말하기', phrase: '아파요, 병원에 가고 싶어요', meaning: '몸이 아파 병원에 가야 한다고 알릴 때 쓰는 표현이에요.', tip: '아픈 곳이 있으면 그 부위를 가리키며 함께 전해 보세요.', words: ['아프다', '병원', '가다', '싶다'] },
   { id: 'time-now', topic: '시간', title: '시간 묻기', phrase: '지금 몇 시예요?', meaning: '현재 시각을 물을 때 쓰는 표현이에요.', tip: '시간을 묻는 표현이라 끝에서 의문 표정을 분명히 해 보세요.', words: ['지금', '시간', '몇'] },
   { id: 'weather-rain', topic: '날씨', title: '날씨 말하기', phrase: '비가 와서 추워요', meaning: '비 오는 날씨와 추운 느낌을 함께 전하는 표현이에요.', tip: '추운 느낌을 몸짓과 표정에 함께 담아 보세요.', words: ['비', '춥다'] },
+  { id: 'talk-again', topic: '대화', title: '다시 말해 달라고 하기', phrase: '다시 말해 주세요', meaning: '상대의 말을 놓쳤을 때 한 번 더 부탁하는 표현이에요.', tip: '미안한 표정을 곁들이면 부탁이 더 부드럽게 전해져요.', words: ['다시', '말하다', '부탁'] },
+  { id: 'talk-unknown', topic: '대화', title: '모른다고 말하기', phrase: '잘 모르겠어요', meaning: '잘 모르거나 이해하지 못했을 때 솔직하게 알리는 표현이에요.', tip: '고개를 살짝 갸웃하는 표정과 함께 하면 뜻이 분명해져요.', words: ['모르다'] },
+  { id: 'talk-ok', topic: '대화', title: '알겠다고 답하기', phrase: '알겠어요, 괜찮아요', meaning: '상대의 말을 이해했고 괜찮다고 답할 때 쓰는 표현이에요.', tip: '고개를 끄덕이며 편안한 표정으로 답해 보세요.', words: ['알다', '괜찮다'] },
+  { id: 'talk-sorry', topic: '대화', title: '사과하기', phrase: '미안해요', meaning: '실수했을 때 미안한 마음을 전하는 표현이에요.', tip: '미안한 마음이 표정에 드러나게 해 보세요.', words: ['미안하다'] },
+  { id: 'people-family', topic: '관계', title: '가족 묻기', phrase: '가족이 몇 명이에요?', meaning: '상대의 가족 수를 물으며 대화를 이어갈 때 쓰는 표현이에요.', tip: '숫자를 묻는 표현이라 끝에서 의문 표정을 분명히 해 보세요.', words: ['가족', '몇', '사람'] },
+  { id: 'people-friend', topic: '관계', title: '기다린다고 말하기', phrase: '친구를 기다려요', meaning: '누군가를 기다리는 중이라고 알릴 때 쓰는 표현이에요.', tip: '기다리는 상황을 표정에도 담아 보세요.', words: ['친구', '기다리다'] },
+  { id: 'people-call', topic: '관계', title: '연락 부탁하기', phrase: '전화 주세요', meaning: '나중에 연락해 달라고 부탁할 때 쓰는 표현이에요.', tip: '부탁하는 표현은 부드러운 표정과 함께 하면 자연스러워요.', words: ['전화', '부탁'] },
+  { id: 'place-subway', topic: '이동', title: '내릴 곳 묻기', phrase: '지하철 어디서 내려요?', meaning: '지하철에서 내릴 역을 물을 때 쓰는 표현이에요.', tip: '장소를 묻는 표현이라 끝에서 의문 표정을 분명히 해 보세요.', words: ['지하철', '어디', '내리다'] },
+  { id: 'shop-card', topic: '쇼핑', title: '카드 결제 묻기', phrase: '카드 돼요?', meaning: '가게에서 카드로 낼 수 있는지 물을 때 쓰는 표현이에요.', tip: '카드를 함께 보여 주면 더 쉽게 전해져요.', words: ['카드', '되다'] },
+  { id: 'meal-coffee', topic: '식사', title: '커피 권하기', phrase: '커피 마실래요?', meaning: '함께 커피를 마시자고 권할 때 쓰는 표현이에요.', tip: '권하는 표현이라 끝에서 의문 표정과 함께 상대를 바라봐요.', words: ['커피', '마시다'] },
+  { id: 'meal-tasty', topic: '식사', title: '맛 말하기', phrase: '맛있어요', meaning: '음식이 맛있다고 전할 때 쓰는 표현이에요.', tip: '만족스러운 표정을 함께 지으면 뜻이 더 잘 전해져요.', words: ['맛있다'] },
+  { id: 'time-tomorrow', topic: '시간', title: '약속 정하기', phrase: '내일 만나요', meaning: '다음 날 다시 만나자고 약속할 때 쓰는 표현이에요.', tip: '밝은 표정으로 상대를 보며 마무리해요.', words: ['내일', '만나다'] },
+  { id: 'weather-hot', topic: '날씨', title: '더위 말하기', phrase: '오늘은 더워요', meaning: '오늘 날씨가 덥다고 전하는 표현이에요.', tip: '더운 느낌을 표정과 몸짓에 함께 담아 보세요.', words: ['오늘', '덥다'] },
 ]
 export const wordGroups: WordGroup[] = [
   { id: 'basic', label: '기초', words: ['미안하다'] },
@@ -76,8 +89,9 @@ const letterStations = (kind: LetterFamily['kind']): Station[] => letterFamilies
 }))
 export const lines: Line[] = [
   { id: 'basic', label: '1', title: '일상 기본 표현', color: '#2c5f6b', kind: 'expression', stations: ['greeting-hello', 'intro-name', 'intro-home', 'daily-help', 'daily-feeling', 'intro-bye'].map(lessonStation) },
-  { id: 'meal-move', label: '2', title: '식사와 이동', color: '#7a502d', kind: 'expression', stations: ['daily-meal', 'meal-water', 'meal-hungry', 'meal-thanks', 'daily-place', 'place-hospital', 'daily-shopping'].map(lessonStation) },
-  { id: 'time-weather', label: '3', title: '시간과 날씨', color: '#7f4851', kind: 'expression', stations: ['time-now', 'weather-rain'].map(lessonStation) },
+  { id: 'meal-move', label: '2', title: '식사와 이동', color: '#7a502d', kind: 'expression', stations: ['daily-meal', 'meal-water', 'meal-hungry', 'meal-thanks', 'meal-tasty', 'meal-coffee', 'daily-place', 'place-subway', 'place-hospital', 'daily-shopping', 'shop-card'].map(lessonStation) },
+  { id: 'time-weather', label: '3', title: '시간과 날씨', color: '#7f4851', kind: 'expression', stations: ['time-now', 'time-tomorrow', 'weather-rain', 'weather-hot'].map(lessonStation) },
+  { id: 'talk-people', label: '4', title: '대화와 관계', color: '#5d5e29', kind: 'expression', stations: ['talk-again', 'talk-unknown', 'talk-ok', 'talk-sorry', 'people-family', 'people-friend', 'people-call'].map(lessonStation) },
   { id: 'consonant', label: '자', title: '손가락글자 자음', color: '#6b4e78', kind: 'letter', stations: letterStations('자음') },
   { id: 'vowel', label: '모', title: '손가락글자 모음', color: '#465a85', kind: 'letter', stations: letterStations('모음') },
 ]
