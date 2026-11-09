@@ -75,7 +75,7 @@ main{flex:1;width:100%;max-width:1120px;margin:0 auto;padding:0 16px calc(var(--
 .line-no{flex:none;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--route);color:#fff;font-size:13px;font-weight:700}
 .count{margin-left:auto;font-size:13px;font-weight:500;color:var(--ink-2)}
 .stations li{position:relative}
-.stations li::before,.stations li::after{content:'';position:absolute;left:11px;width:2px;height:50%;background:var(--rail)}
+.stations li::before,.stations li::after{content:'';position:absolute;z-index:1;left:11px;width:2px;height:50%;background:var(--rail);pointer-events:none} /* 행 배경(이번 역 바탕)에 덮이지 않게 버튼 위에 그린다 */
 .stations li::before{top:0}
 .stations li::after{bottom:0}
 .stations li.from-done::before,.stations li.is-done::after{left:10px;width:4px;background:var(--route)}
@@ -83,7 +83,7 @@ main{flex:1;width:100%;max-width:1120px;margin:0 auto;padding:0 16px calc(var(--
 .station-btn{position:relative;display:flex;align-items:center;gap:12px;width:100%;min-height:64px;padding:10px 8px 10px 0;border:0;border-bottom:1px solid var(--rule);background:none;color:var(--ink-2);text-align:left}
 .station-btn:hover{background:var(--ground-2)}
 .station-btn.is-current,.station.is-now .station-btn{background:var(--primary-tint)}
-.marker{position:relative;z-index:1;flex:none;width:14px;height:14px;margin:0 5px;border:2px solid var(--rail);border-radius:50%;background:var(--ground)}
+.marker{position:relative;z-index:2;flex:none;width:14px;height:14px;margin:0 5px;border:2px solid var(--rail);border-radius:50%;background:var(--ground)}
 .is-done>button>.marker,.is-done .marker{border-color:var(--route);background:var(--route)}
 .is-now>button>.marker,.is-now .marker{width:18px;height:18px;margin:0 3px;border:4px solid var(--route)}
 .state-done{font-size:13px;color:var(--ink-2)}
