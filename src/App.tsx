@@ -8,7 +8,6 @@ import Lesson from './components/Lesson'
 import ExpressionSearch from './components/ExpressionSearch'
 import Guide from './components/Guide'
 import Attribution from './components/Attribution'
-import Intro from './components/Intro'
 import logo from './assets/logo.svg'
 import { useNewVersion } from './lib/useNewVersion'
 type View = 'learn' | 'search' | 'guide'
@@ -22,16 +21,9 @@ const storeKey = 'handword-completed'
 function loadCompleted(): Set<string> {
   try { return new Set(JSON.parse(localStorage.getItem(storeKey) ?? '[]')) } catch { return new Set() }
 }
-const introKey = 'handword-intro-seen'
-// 시작 화면은 처음 한 번만 보인다. 이미 익힌 역이 있는 기존 사용자에게는 보이지 않는다
-function needsIntro(completed: Set<string>): boolean {
-  if (completed.size > 0) return false
-  try { return localStorage.getItem(introKey) !== '1' } catch { return true }
-}
 export default function App() {
   const [view, setView] = useState<View>('learn')
   const [completed, setCompleted] = useState<Set<string>>(loadCompleted)
-  const [intro, setIntro] = useState(() => needsIntro(completed))
   const resumeId = resumeStation(lines, completed).id
   const [stationId, setStationId] = useState(resumeId)
   const [lessonOpen, setLessonOpen] = useState(false) // 좁은 화면에서 레슨이 노선도를 덮는지
@@ -48,15 +40,13 @@ export default function App() {
     setCompleted(next)
     try { localStorage.setItem(storeKey, JSON.stringify([...next])) } catch { setMessage('이 브라우저에서는 학습 기록을 저장하지 못해요. 이번 방문 동안만 유지돼요.') }
   }
-  const closeIntro = () => { setIntro(false); try { localStorage.setItem(introKey, '1') } catch { /* 저장 불가면 다음 방문에도 보인다 */ } }
-  const showSource = () => { closeIntro(); setView('guide'); setToSource(true) }
+  const showSource = () => { setView('guide'); setToSource(true) }
   useEffect(() => {
     if (!toSource || view !== 'guide') return
     const target = document.getElementById('source')
     target?.scrollIntoView({ block: 'start' }); target?.focus({ preventScroll: true }); setToSource(false)
   }, [toSource, view])
   const go = (next: View) => { setView(next); setLessonOpen(false); window.scrollTo({ top: 0 }) }
-  if (intro) return <Intro lineCount={lines.length} stationCount={lines.reduce((n, line) => n + line.stations.length, 0)} onStart={closeIntro} onSource={showSource} />
   return <div className={`app view-${view}${lessonOpen ? ' lesson-open' : ''}`}>
     <header className="site-header">
       <button type="button" className="brand" onClick={() => go('learn')}><img src={logo} alt="" width="34" height="25" />손말하루</button>
