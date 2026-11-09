@@ -22,6 +22,16 @@ export const lessons: Lesson[] = [
   { id: 'daily-shopping', topic: '쇼핑', title: '가격 확인하기', phrase: '이거 얼마예요?', meaning: '물건의 가격이나 구매 정보를 확인할 때 쓰는 기본 표현이에요.', tip: '가리키는 대상과 숫자 표현을 또렷하게 연결해 보세요.', words: ['이것', '얼마', '사다'] },
   { id: 'daily-help', topic: '도움', title: '도움 요청하기', phrase: '도와주세요', meaning: '일상에서 도움이 필요할 때 가장 먼저 익혀두면 좋은 표현이에요.', tip: '급한 상황이 아니라면 천천히 반복해서 전달해도 괜찮아요.', words: ['도움', '괜찮다', '다시'] },
   { id: 'daily-feeling', topic: '감정', title: '오늘 기분 말하기', phrase: '오늘 기분이 좋아요', meaning: '내 상태를 편안하게 나누고 대화를 이어가는 표현이에요.', tip: '기분을 나타내는 표정을 함께 연습하면 의미가 더 선명해져요.', words: ['좋다', '피곤', '걱정'] },
+  // 2026-11-09 추가: 낱말은 한국수어사전 일상생활 수어에서 골라 lookup_signs로 영상이 있는지 확인했다. 뜻·팁은 검토 전 초안이다
+  { id: 'intro-name', topic: '소개', title: '이름 묻기', phrase: '이름이 뭐예요?', meaning: '처음 만난 사람의 이름을 물을 때 쓰는 표현이에요.', tip: '묻는 표현은 눈썹을 살짝 올리고 상대를 바라보며 끝맺어요.', words: ['이름', '무엇'] },
+  { id: 'intro-home', topic: '소개', title: '사는 곳 묻기', phrase: '어디에 살아요?', meaning: '사는 동네를 물으며 대화를 이어갈 때 쓰는 표현이에요.', tip: '장소를 묻는 표현이라 끝에서 의문 표정을 분명히 해 보세요.', words: ['어디', '살다'] },
+  { id: 'intro-bye', topic: '인사', title: '헤어질 때 인사', phrase: '다음에 또 만나요', meaning: '헤어지며 다시 만나자고 할 때 쓰는 인사예요.', tip: '밝은 표정으로 상대를 보며 마지막 낱말을 또렷하게 마무리해요.', words: ['다음', '또', '만나다'] },
+  { id: 'meal-water', topic: '식사', title: '물 부탁하기', phrase: '물 좀 주세요', meaning: '식당이나 모임에서 물을 부탁할 때 쓰는 표현이에요.', tip: '부탁하는 표현은 부드러운 표정과 함께 하면 자연스러워요.', words: ['물', '주다', '부탁'] },
+  { id: 'meal-hungry', topic: '식사', title: '배고픔 말하기', phrase: '배고파요, 먹고 싶어요', meaning: '배가 고파 무언가 먹고 싶다고 전할 때 쓰는 표현이에요.', tip: '배고픈 느낌을 표정에도 담아 보세요.', words: ['배고프다', '먹다', '싶다'] },
+  { id: 'meal-thanks', topic: '식사', title: '식사 전 인사', phrase: '잘 먹겠습니다', meaning: '식사를 시작하기 전에 고마움을 전하는 인사예요.', tip: '상대를 보며 가볍게 고개를 숙이면 인사의 뜻이 더 잘 전해져요.', words: ['잘', '먹다'] },
+  { id: 'place-hospital', topic: '이동', title: '아플 때 말하기', phrase: '아파요, 병원에 가고 싶어요', meaning: '몸이 아파 병원에 가야 한다고 알릴 때 쓰는 표현이에요.', tip: '아픈 곳이 있으면 그 부위를 가리키며 함께 전해 보세요.', words: ['아프다', '병원', '가다', '싶다'] },
+  { id: 'time-now', topic: '시간', title: '시간 묻기', phrase: '지금 몇 시예요?', meaning: '현재 시각을 물을 때 쓰는 표현이에요.', tip: '시간을 묻는 표현이라 끝에서 의문 표정을 분명히 해 보세요.', words: ['지금', '시간', '몇'] },
+  { id: 'weather-rain', topic: '날씨', title: '날씨 말하기', phrase: '비가 와서 추워요', meaning: '비 오는 날씨와 추운 느낌을 함께 전하는 표현이에요.', tip: '추운 느낌을 몸짓과 표정에 함께 담아 보세요.', words: ['비', '춥다'] },
 ]
 export const wordGroups: WordGroup[] = [
   { id: 'basic', label: '기초', words: ['미안하다'] },
@@ -65,8 +75,9 @@ const letterStations = (kind: LetterFamily['kind']): Station[] => letterFamilies
   meaning: '수어에 없는 이름, 지명, 새 낱말은 손가락글자로 한 글자씩 전달해요.', tip: '손바닥이 어느 쪽을 향하는지도 함께 보세요.',
 }))
 export const lines: Line[] = [
-  { id: 'basic', label: '1', title: '일상 기본 표현', color: '#2c5f6b', kind: 'expression', stations: ['greeting-hello', 'daily-help', 'daily-feeling'].map(lessonStation) },
-  { id: 'meal-move', label: '2', title: '식사와 이동', color: '#7a502d', kind: 'expression', stations: ['daily-meal', 'daily-place', 'daily-shopping'].map(lessonStation) },
+  { id: 'basic', label: '1', title: '일상 기본 표현', color: '#2c5f6b', kind: 'expression', stations: ['greeting-hello', 'intro-name', 'intro-home', 'daily-help', 'daily-feeling', 'intro-bye'].map(lessonStation) },
+  { id: 'meal-move', label: '2', title: '식사와 이동', color: '#7a502d', kind: 'expression', stations: ['daily-meal', 'meal-water', 'meal-hungry', 'meal-thanks', 'daily-place', 'place-hospital', 'daily-shopping'].map(lessonStation) },
+  { id: 'time-weather', label: '3', title: '시간과 날씨', color: '#7f4851', kind: 'expression', stations: ['time-now', 'weather-rain'].map(lessonStation) },
   { id: 'consonant', label: '자', title: '손가락글자 자음', color: '#6b4e78', kind: 'letter', stations: letterStations('자음') },
   { id: 'vowel', label: '모', title: '손가락글자 모음', color: '#465a85', kind: 'letter', stations: letterStations('모음') },
 ]

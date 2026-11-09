@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "typecheck": "tsc --noEmit",
-    "check": "node scripts/check-signs.mjs && node scripts/check-route.mjs"
+    "check": "node scripts/check-signs.mjs && node scripts/check-route.mjs",
+    "check:words": "node scripts/check-words.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
