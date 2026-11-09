@@ -8,6 +8,7 @@ import Lesson from './components/Lesson'
 import ExpressionSearch from './components/ExpressionSearch'
 import Guide from './components/Guide'
 import Attribution from './components/Attribution'
+import logo from './assets/logo.svg'
 type View = 'learn' | 'search' | 'guide'
 const tabs: { id: View; label: string; icon: string }[] = [
   { id: 'learn', label: '배우기', icon: 'library' },
@@ -45,7 +46,7 @@ export default function App() {
   const go = (next: View) => { setView(next); setLessonOpen(false); window.scrollTo({ top: 0 }) }
   return <div className={`app view-${view}${lessonOpen ? ' lesson-open' : ''}`}>
     <header className="site-header">
-      <button type="button" className="brand" onClick={() => go('learn')}>손말하루</button>
+      <button type="button" className="brand" onClick={() => go('learn')}><img src={logo} alt="" width="34" height="25" />손말하루</button>
       <nav className="nav" aria-label="주요 메뉴">
         {tabs.map((tab) => <button key={tab.id} type="button" className={view === tab.id ? 'nav-item is-active' : 'nav-item'} aria-current={view === tab.id ? 'page' : undefined} onClick={() => go(tab.id)}><Icon name={tab.icon} size={22} />{tab.label}</button>)}
       </nav>
