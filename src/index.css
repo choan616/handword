@@ -154,7 +154,7 @@ main{flex:1;width:100%;max-width:1120px;margin:0 auto;padding:0 16px calc(var(--
 /* 검색·안내 */
 .page{max-width:720px;display:grid;grid-template-columns:minmax(0,1fr);align-content:start}
 .page-title{padding:20px 0 12px;font-size:22px;line-height:1.3}
-.search-form{display:grid;gap:8px;padding-bottom:8px}
+.search-form{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding-bottom:8px}
 .search-field{display:flex;gap:8px}
 .search-input{flex:1;min-width:0;display:flex;align-items:center;gap:8px;min-height:48px;padding:0 2px 0 12px;border:1px solid var(--ink-2);border-radius:var(--press);color:var(--ink-2)}
 .search-input:focus-within{outline:2px solid var(--primary);outline-offset:-1px;border-color:var(--primary)}
