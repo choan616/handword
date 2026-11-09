@@ -35,6 +35,9 @@ a{color:var(--primary-ink);text-underline-offset:3px}
 main{flex:1;width:100%;max-width:1120px;margin:0 auto;padding:0 16px calc(var(--tab-h) + 16px)}
 .toast{position:fixed;left:50%;bottom:calc(var(--tab-h) + 16px);transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:12px;max-width:calc(100% - 32px);padding:10px 8px 10px 14px;border-radius:var(--press);background:var(--ink);color:#fff;font-size:14px}
 .toast button{display:grid;place-items:center;width:32px;height:32px;border:0;background:none;color:#fff}
+.toast-update{white-space:nowrap}
+.toast .toast-action{width:auto;min-height:32px;padding:0 10px;border:1px solid var(--video-text);border-radius:var(--press);font-size:14px;font-weight:700}
+.lesson-open .toast{bottom:88px} /* 레슨 화면에서는 탭바 대신 하단 버튼 위에 띄운다 */
 
 /* 공용 요소 */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 18px;border:1px solid var(--ink);border-radius:var(--press);background:var(--ground);font-weight:700}

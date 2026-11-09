@@ -9,6 +9,7 @@ import ExpressionSearch from './components/ExpressionSearch'
 import Guide from './components/Guide'
 import Attribution from './components/Attribution'
 import logo from './assets/logo.svg'
+import { useNewVersion } from './lib/useNewVersion'
 type View = 'learn' | 'search' | 'guide'
 const tabs: { id: View; label: string; icon: string }[] = [
   { id: 'learn', label: '배우기', icon: 'library' },
@@ -28,6 +29,8 @@ export default function App() {
   const [lessonOpen, setLessonOpen] = useState(false) // 좁은 화면에서 레슨이 노선도를 덮는지
   const [message, setMessage] = useState('')
   const [toSource, setToSource] = useState(false)
+  const newVersion = useNewVersion()
+  const [updateDismissed, setUpdateDismissed] = useState(false)
   const openStation = (id: string) => {
     if (!findStation(lines, id)) return
     setView('learn'); setStationId(id); setLessonOpen(true); window.scrollTo({ top: 0 })
@@ -65,6 +68,10 @@ export default function App() {
       {view === 'search' && <><ExpressionSearch onOpen={openStation} /><Attribution onFull={showSource} /></>}
       {view === 'guide' && <Guide onStart={() => go('learn')} />}
     </main>
+    {newVersion && !updateDismissed && !message && <div className="toast toast-update" role="status">새 버전이 나왔어요.
+      <button type="button" className="toast-action" onClick={() => window.location.reload()}>새로고침</button>
+      <button type="button" onClick={() => setUpdateDismissed(true)} aria-label="알림 닫기"><Icon name="close" size={18} /></button>
+    </div>}
     {message && <div className="toast" role="status">{message}<button type="button" onClick={() => setMessage('')} aria-label="알림 닫기"><Icon name="close" size={18} /></button></div>}
   </div>
 }
