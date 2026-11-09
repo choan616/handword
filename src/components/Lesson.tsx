@@ -131,9 +131,9 @@ export default function Lesson({ stationId, completed, onComplete, onOpen, onClo
           ? <button type="button" className="btn btn-primary btn-block" onClick={() => go('done')}>계속하기</button>
           : <button type="button" className="btn btn-primary btn-block" onClick={check}>확인</button>)}
         {step === 'done' && <>
-          {!completed.has(station.id) && <button type="button" className="btn btn-primary" onClick={() => onComplete(station.id)}>익힘으로 표시</button>}
-          {next && <button type="button" className="btn btn-primary" onClick={() => onOpen(next.id)}>다음 역으로</button>}
-          <button type="button" className="btn" onClick={onClose}>노선도로 돌아가기</button>
+          {!completed.has(station.id) && <button type="button" className="btn btn-primary" aria-label="익힘으로 표시" onClick={() => onComplete(station.id)}>익힘</button>}
+          {next && <button type="button" className="btn btn-primary" aria-label="다음 역으로" onClick={() => onOpen(next.id)}>다음 역</button>}
+          <button type="button" className="btn" aria-label="노선도로 돌아가기" onClick={onClose}>노선도</button>
         </>}
       </div>
     </div>
