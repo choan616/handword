@@ -181,7 +181,7 @@ main{flex:1;width:100%;max-width:1120px;margin:0 auto;padding:0 16px calc(var(--
 
 /* 넓은 화면: 상단 내비, 노선도·레슨 두 열 */
 @media (min-width:900px){
-  .site-header{padding:0 24px}
+  .site-header{padding-inline:max(24px,calc(50% - 536px))} /* 헤더 내용을 본문(1120px, 안쪽 24px) 가장자리에 맞춘다 */
   main{padding:0 24px 32px}
   .toast{bottom:24px}
   .learn{display:grid;grid-template-columns:minmax(300px,360px) 1fr;gap:32px;align-items:start}
