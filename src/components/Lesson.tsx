@@ -29,8 +29,9 @@ export default function Lesson({ stationId, completed, onComplete, onOpen, onClo
   useEffect(() => { if (step === 'done' && !completed.has(station.id)) onComplete(station.id) }, [step, station.id])
   // 원본 영상을 합치지 않고 낱말 순서대로 하나씩 재생한다
   const ended = () => {
-    if (wordIndex < words.length - 1) setWordIndex(wordIndex + 1)
-    else if (repeat) setWordIndex(0)
+    if (wordIndex < words.length - 1) { setWordIndex(wordIndex + 1); return true }
+    if (repeat && words.length > 1) { setWordIndex(0); return true }
+    return false
   }
   const check = () => {
     if (!choice) { setResult('empty'); return }

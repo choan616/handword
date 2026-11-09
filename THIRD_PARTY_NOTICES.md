@@ -2,7 +2,7 @@
 
 ## 아이콘: Lucide / Feather
 
-`src/components/Icon.tsx`의 아이콘 모양은 [Lucide](https://github.com/lucide-icons/lucide) 저장소의 공식 SVG 원본(`icons/*.svg`)을 그대로 사용했습니다. 사용한 아이콘은 `book`, `search`, `info`, `check`, `chevron-right`, `x`, `circle-alert`, `external-link`입니다. 이 중 일부(`search`, `info`, `check`, `chevron-right`, `x`, `circle-alert`, `external-link` 등)는 Lucide가 Feather 프로젝트에서 이어받은 아이콘이라 두 라이선스를 모두 싣습니다. 원문 라이선스는 https://github.com/lucide-icons/lucide/blob/main/LICENSE 입니다.
+`src/components/Icon.tsx`의 아이콘 모양은 [Lucide](https://github.com/lucide-icons/lucide) 저장소의 공식 SVG 원본(`icons/*.svg`)을 그대로 사용했습니다. 사용한 아이콘은 `book`, `search`, `info`, `play`, `check`, `chevron-right`, `x`, `circle-alert`, `external-link`입니다. 이 중 일부(`search`, `info`, `check`, `chevron-right`, `x`, `circle-alert`, `external-link` 등)는 Lucide가 Feather 프로젝트에서 이어받은 아이콘이라 두 라이선스를 모두 싣습니다. 원문 라이선스는 https://github.com/lucide-icons/lucide/blob/main/LICENSE 입니다.
 
 ### ISC License (Lucide)
 
