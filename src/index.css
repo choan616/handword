@@ -153,8 +153,8 @@ main{flex:1;width:100%;max-width:1120px;margin:0 auto;padding:0 16px calc(var(--
 .feedback{margin:0 -16px;padding:12px 16px;background:var(--ok-tint)}
 .feedback strong{color:var(--ok);font-size:16px}
 .feedback p{font-size:14px}
-.actions{display:flex;gap:8px;padding:12px 0 16px}
-.actions .btn{flex:1}
+.actions{display:flex;flex-wrap:wrap;gap:8px;padding:12px 0 16px}
+.actions .btn{flex:1 1 auto;white-space:nowrap}
 
 /* 검색·안내 */
 .page{max-width:720px;display:grid;grid-template-columns:minmax(0,1fr);align-content:start}
