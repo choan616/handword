@@ -1,7 +1,7 @@
 // 학습 방법, 유의사항, 자료 출처 전문, 아이콘 라이선스를 안내하는 화면
 import Icon from './Icon'
 import { AttributionFull } from './Attribution'
-type Props = { onStart: () => void }
+type Props = { onStart: () => void; onReset: () => void; hasProgress: boolean }
 const noticesUrl = 'https://github.com/choan616/handword/blob/main/THIRD_PARTY_NOTICES.md'
 const steps = [
   { title: '노선에서 이번 역을 골라요', text: '단원은 노선, 표현은 역이에요. 이어서 배울 역은 노선 위에 "이번 역"으로 표시돼요.' },
@@ -9,7 +9,7 @@ const steps = [
   { title: '따라 하기와 고르기', text: '느린 속도로 따라 해 본 뒤, 영상을 보고 알맞은 뜻을 골라요.' },
   { title: '완료하면 다음 역으로', text: '완료한 역은 이 브라우저에 익힘으로 남고, 다음에는 다음 역부터 이어서 배워요.' },
 ]
-export default function Guide({ onStart }: Props) {
+export default function Guide({ onStart, onReset, hasProgress }: Props) {
   return <section className="page" aria-labelledby="guide-title">
     <h1 id="guide-title" className="page-title">안내</h1>
     <section className="guide-block" aria-labelledby="guide-steps">
@@ -29,6 +29,11 @@ export default function Guide({ onStart }: Props) {
       <h2 id="guide-icons">아이콘 라이선스</h2>
       <p>아이콘은 Lucide·Feather의 오픈소스 아이콘(ISC·MIT 라이선스)을 사용해요.</p>
       <a className="link" href={noticesUrl} target="_blank" rel="noreferrer">라이선스 고지 보기 <Icon name="external" size={16} /></a>
+    </section>
+    <section className="guide-block" aria-labelledby="guide-reset">
+      <h2 id="guide-reset">학습 기록</h2>
+      <p>익힌 역 기록은 이 브라우저에만 저장돼요. 초기화하면 처음부터 다시 배워요.</p>
+      <button type="button" className="btn" disabled={!hasProgress} onClick={() => { if (window.confirm('익힌 역 기록을 모두 지울까요? 되돌릴 수 없어요.')) onReset() }}>학습 기록 초기화</button>
     </section>
     <button type="button" className="btn btn-primary btn-block" onClick={onStart}>배우러 가기</button>
   </section>

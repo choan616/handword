@@ -41,7 +41,13 @@ export default function App() {
     setCompleted(next)
     try { localStorage.setItem(storeKey, JSON.stringify([...next])) } catch { setMessage('이 브라우저에서는 학습 기록을 저장하지 못해요. 이번 방문 동안만 유지돼요.') }
   }
-  const showSource = () => { setView('guide'); setToSource(true) }
+  const reset = () => {
+    const empty = new Set<string>()
+    setCompleted(empty); setStationId(resumeStation(lines, empty).id)
+    try { localStorage.removeItem(storeKey) } catch { /* 저장소를 못 쓰면 이번 방문 기록만 지워진다 */ }
+    setMessage('학습 기록을 초기화했어요.')
+  }
+  const showSource =() => { setView('guide'); setToSource(true) }
   useEffect(() => {
     if (!toSource || view !== 'guide') return
     const target = document.getElementById('source')
@@ -68,7 +74,7 @@ export default function App() {
         </div>
       </div>}
       {view === 'search' && <><ExpressionSearch onOpen={openStation} /><Attribution onFull={showSource} /></>}
-      {view === 'guide' && <Guide onStart={() => go('learn')} />}
+      {view === 'guide' && <Guide onStart={() => go('learn')} onReset={reset} hasProgress={completed.size > 0} />}
     </main>
     {newVersion && !updateDismissed && !message && <div className="toast toast-update" role="status">새 버전이 나왔어요.
       <button type="button" className="toast-action" onClick={() => window.location.reload()}>새로고침</button>
