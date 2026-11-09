@@ -8,6 +8,7 @@ import Lesson from './components/Lesson'
 import ExpressionSearch from './components/ExpressionSearch'
 import Guide from './components/Guide'
 import Attribution from './components/Attribution'
+import Splash from './components/Splash'
 import logo from './assets/logo.svg'
 import { useNewVersion } from './lib/useNewVersion'
 type View = 'learn' | 'search' | 'guide'
@@ -48,6 +49,7 @@ export default function App() {
   }, [toSource, view])
   const go = (next: View) => { setView(next); setLessonOpen(false); window.scrollTo({ top: 0 }) }
   return <div className={`app view-${view}${lessonOpen ? ' lesson-open' : ''}`}>
+    <Splash />
     <header className="site-header">
       <button type="button" className="brand" onClick={() => go('learn')}><img src={logo} alt="" width="34" height="25" />손말하루</button>
       <nav className="nav" aria-label="주요 메뉴">
