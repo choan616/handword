@@ -22,7 +22,8 @@ export default function Lesson({ stationId, completed, onComplete, onOpen, onClo
   const next = nextStation(lines, station.id)
   const options = quizOptions(station.answer, quizPool(lines, line), index)
   const word = words[wordIndex]
-  const go = (target: Step) => {
+  const source = data?.resources.find((item) => item.word === word)?.source_url
+  const go =(target: Step) => {
     setStep(target); setWordIndex(0); setRate(target === 'follow' ? 0.5 : 1); setChoice(null); setResult(null)
   }
   useEffect(() => { go('watch') }, [stationId])
@@ -80,6 +81,7 @@ export default function Lesson({ stationId, completed, onComplete, onOpen, onClo
           <span className="now-next">{wordIndex < words.length - 1 ? <>다음 역 <strong>{words[wordIndex + 1]}</strong></> : '마지막 역'}</span>
         </div>
         {words.length > 1 && routeH(false)}
+        {source && <a className="link" href={source} target="_blank" rel="noreferrer">사전에서 '{word}' 보기 <Icon name="external" size={16} /></a>}
       </>}
       {step !== 'choose' && <div className="controls">
         <div className="segmented" role="group" aria-label="재생 속도">
