@@ -3,8 +3,10 @@ import { useEffect, useRef, useState } from 'react'
 import type { Result } from '../lib/signs'
 import Icon from './Icon'
 // onEnded가 true를 돌려주면 부모가 다음 낱말로 넘어간 것이라 재생 버튼을 띄우지 않는다
-type Props = { data: Result | null; word: string; rate?: number; loop?: boolean; onEnded?: () => boolean | void; onRetry: () => void }
-export default function SignMedia({ data, word, rate = 1, loop = false, onEnded, onRetry }: Props) {
+// label은 낱말 이름을 숨겨야 하는 고르기에서 영상·사진의 접근성 이름으로 낱말 대신 쓴다
+type Props = { data: Result | null; word: string; label?: string; rate?: number; loop?: boolean; onEnded?: () => boolean | void; onRetry: () => void }
+export default function SignMedia({ data, word, label, rate = 1, loop = false, onEnded, onRetry }: Props) {
+  const name = label ?? word
   const video = useRef<HTMLVideoElement>(null)
   const [mediaError, setMediaError] = useState(false)
   const [stopped, setStopped] = useState(false) // 멈춤·끝남·자동 재생 막힘
@@ -24,11 +26,11 @@ export default function SignMedia({ data, word, rate = 1, loop = false, onEnded,
     <video ref={video} key={resource.video_url} src={resource.video_url} autoPlay muted playsInline loop={loop} preload="auto"
       onLoadedMetadata={applyRate} onPlay={() => setStopped(false)} onPause={(event) => { if (!event.currentTarget.ended) setStopped(true) }}
       onEnded={() => { if (!onEnded?.()) setStopped(true) }} onError={() => setMediaError(true)}>이 브라우저에서는 영상을 재생할 수 없어요.</video>
-    <button type="button" className={stopped ? 'media-toggle is-stopped' : 'media-toggle'} onClick={toggle} aria-label={stopped ? `${word} 영상 재생` : `${word} 영상 멈춤`}>
+    <button type="button" className={stopped ? 'media-toggle is-stopped' : 'media-toggle'} onClick={toggle} aria-label={stopped ? `${name} 영상 재생` : `${name} 영상 멈춤`}>
       {stopped && <span className="media-play" aria-hidden="true"><Icon name="play" size={26} /></span>}
     </button>
   </>
-  else if (resource?.image_url) media = <img src={resource.image_url} alt={`${word} 수어 동작 사진`} />
+  else if (resource?.image_url) media = <img src={resource.image_url} alt={`${name} 수어 동작 사진`} />
   else media = <div className="media-state">
     <p>{resource ? '이 낱말의 영상을 재생하지 못했어요.' : data.status === 'error' ? data.message : `'${word}'의 수어 자료가 없어요.`}</p>
     {(resource || data.status === 'error') && <button type="button" className="btn btn-small btn-on-dark" onClick={onRetry}>다시 불러오기</button>}

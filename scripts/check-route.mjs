@@ -32,6 +32,10 @@ for (const line of lines) for (const [i, station] of line.stations.entries()) {
   const options = quizOptions(station.answer, quizPool(lines, line), i)
   assert.ok(options.includes(station.answer) && options.length >= 2, `${station.id}: 고르기 보기가 만들어진다`)
 }
+const expressionStations = lines.filter((line) => line.kind === 'expression').flatMap((line) => line.stations)
+for (const station of expressionStations) assert.ok(station.words.includes(station.answer), `${station.id}: 고르기 정답은 이 역의 낱말`)
+const expressionAnswers = new Set(expressionStations.map((station) => station.answer))
+for (const [a, b] of [['또', '다시'], ['얼마', '몇']]) assert.ok(!(expressionAnswers.has(a) && expressionAnswers.has(b)), `${a}·${b}는 사전에서 같은 수어라 한 문제의 보기로 섞지 않는다`)
 assert.ok(quizPool(lines, lines.find((line) => line.id === 'vowel')).every((answer) => /[ㅏ-ㅣ]/.test(answer)), '모음 보기에는 모음만')
 
 assert.equal(nextStep('watch'), 'follow')

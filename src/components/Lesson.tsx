@@ -23,6 +23,7 @@ export default function Lesson({ stationId, completed, onComplete, onOpen, onClo
   const options = quizOptions(station.answer, quizPool(lines, line), index)
   const word = words[wordIndex]
   const source = data?.resources.find((item) => item.word === word)?.source_url
+  const quiz = step === 'choose' && line.kind === 'expression' // 표현 노선의 고르기는 정답 낱말 하나의 영상을 반복해서 보여 준다
   const go =(target: Step) => {
     setStep(target); setWordIndex(0); setRate(target === 'follow' ? 0.5 : 1); setChoice(null); setResult(null)
   }
@@ -73,7 +74,7 @@ export default function Lesson({ stationId, completed, onComplete, onOpen, onClo
       <p>{lead}</p>
     </div>
     {step !== 'done' && <>
-      <SignMedia key={playKey} data={data} word={word} rate={rate} loop={repeat && words.length === 1} onEnded={ended} onRetry={retry} />
+      <SignMedia key={playKey} data={data} word={quiz ? station.answer : word} label={quiz ? '고르기 문제' : undefined} rate={rate} loop={quiz || (repeat && words.length === 1)} onEnded={quiz ? undefined : ended} onRetry={retry} />
       {/* 고르기에서는 낱말 이름이 답을 알려 주므로 띠와 낱말 노선을 숨긴다 */}
       {step !== 'choose' && <>
         <div className="now-band" aria-live="polite">
