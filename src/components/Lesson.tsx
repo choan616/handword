@@ -119,7 +119,7 @@ export default function Lesson({ stationId, completed, onComplete, onOpen, onClo
       <Attribution onFull={onSource} />
       {result === 'right' && step === 'choose' && <div className="feedback" role="status">
         <strong>정답이에요</strong>
-        <p>{words.join(' · ')} {line.kind === 'letter' ? '글자를 차례로 표현해요.' : `낱말 ${words.length}개를 이어서 표현해요.`}</p>
+        <p>{words.join(' · ')} {line.kind === 'letter' ? '글자를 차례로 표현해요.' : '관련 낱말을 차례로 익혀요.'}</p>
       </div>}
       <div className="actions">
         {step === 'watch' && <button type="button" className="btn btn-primary btn-block" onClick={() => go(nextStep(step))}>다음 · 따라 하기</button>}
