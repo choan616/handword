@@ -16,12 +16,12 @@ export type Station = { id: string; title: string; sub: string; words: string[];
 // 노선: 단원. 노선색은 단원마다 다르고 OKLCH 명도·채도를 맞춘 저채도 색이다
 export type Line = { id: string; label: string; title: string; color: string; kind: 'expression' | 'letter'; stations: Station[] }
 export const lessons: Lesson[] = [
-  { id: 'greeting-hello', topic: '인사', title: '처음 만났을 때 인사', phrase: '안녕하세요', meaning: '처음 만나거나 정중하게 인사할 때 쓰는 표현이에요.', tip: '상대의 눈을 보고 밝은 표정으로 인사해 보세요. 수어는 손동작뿐 아니라 표정과 시선도 함께 전달돼요.', words: ['안녕하세요', '반갑다', '감사합니다'] },
-  { id: 'daily-meal', topic: '식사', title: '식사 약속 묻기', phrase: '같이 밥 먹을까요?', meaning: '식사 시간이나 함께 먹을지 자연스럽게 물을 때 사용해요.', tip: '질문할 때는 고개를 살짝 기울이고, 끝맺음 표정을 분명하게 해 보세요.', words: ['약속', '같이', '먹다'] },
-  { id: 'daily-place', topic: '이동', title: '장소와 길 묻기', phrase: '화장실이 어디예요?', meaning: '낯선 곳에서 필요한 장소를 찾을 때 유용한 표현이에요.', tip: '장소를 가리키는 손짓을 함께 쓰면 더 쉽게 이해할 수 있어요.', words: ['화장실', '어디', '가다'] },
-  { id: 'daily-shopping', topic: '쇼핑', title: '가격 확인하기', phrase: '이거 얼마예요?', meaning: '물건의 가격이나 구매 정보를 확인할 때 쓰는 기본 표현이에요.', tip: '가리키는 대상과 숫자 표현을 또렷하게 연결해 보세요.', words: ['이것', '얼마', '사다'] },
-  { id: 'daily-help', topic: '도움', title: '도움 요청하기', phrase: '도와주세요', meaning: '일상에서 도움이 필요할 때 가장 먼저 익혀두면 좋은 표현이에요.', tip: '급한 상황이 아니라면 천천히 반복해서 전달해도 괜찮아요.', words: ['도움', '괜찮다', '다시'] },
-  { id: 'daily-feeling', topic: '감정', title: '오늘 기분 말하기', phrase: '오늘 기분이 좋아요', meaning: '내 상태를 편안하게 나누고 대화를 이어가는 표현이에요.', tip: '기분을 나타내는 표정을 함께 연습하면 의미가 더 선명해져요.', words: ['좋다', '피곤', '걱정'] },
+  { id: 'greeting-hello', topic: '인사', title: '처음 만났을 때 인사', phrase: '안녕하세요', meaning: '처음 만나거나 정중하게 인사할 때 쓰는 표현이에요.', tip: '상대의 눈을 보고 밝은 표정으로 인사해 보세요. 수어는 손동작뿐 아니라 표정과 시선도 함께 전달돼요.', words: ['안녕하세요', '반갑다'] },
+  { id: 'daily-meal', topic: '식사', title: '식사 약속 묻기', phrase: '같이 밥 먹을까요?', meaning: '식사 시간이나 함께 먹을지 자연스럽게 물을 때 사용해요.', tip: '질문할 때는 고개를 살짝 기울이고, 끝맺음 표정을 분명하게 해 보세요.', words: ['같이', '먹다'] }, // 사전에서 '밥'은 '초밥' 항목으로 연결돼 쓰지 않는다
+  { id: 'daily-place', topic: '이동', title: '장소와 길 묻기', phrase: '화장실이 어디예요?', meaning: '낯선 곳에서 필요한 장소를 찾을 때 유용한 표현이에요.', tip: '장소를 가리키는 손짓을 함께 쓰면 더 쉽게 이해할 수 있어요.', words: ['화장실', '어디'] },
+  { id: 'daily-shopping', topic: '쇼핑', title: '가격 확인하기', phrase: '이거 얼마예요?', meaning: '물건의 가격이나 구매 정보를 확인할 때 쓰는 기본 표현이에요.', tip: '가리키는 대상과 숫자 표현을 또렷하게 연결해 보세요.', words: ['이것', '얼마'] },
+  { id: 'daily-help', topic: '도움', title: '도움 요청하기', phrase: '도와주세요', meaning: '일상에서 도움이 필요할 때 가장 먼저 익혀두면 좋은 표현이에요.', tip: '급한 상황이 아니라면 천천히 반복해서 전달해도 괜찮아요.', words: ['도움', '부탁'] },
+  { id: 'daily-feeling', topic: '감정', title: '오늘 기분 말하기', phrase: '오늘 기분이 좋아요', meaning: '내 상태를 편안하게 나누고 대화를 이어가는 표현이에요.', tip: '기분을 나타내는 표정을 함께 연습하면 의미가 더 선명해져요.', words: ['오늘', '기분', '좋다'] },
   // 2026-11-09 추가: 낱말은 한국수어사전 일상생활 수어에서 골라 lookup_signs로 영상이 있는지 확인했다. 뜻·팁은 검토 전 초안이다
   { id: 'intro-name', topic: '소개', title: '이름 묻기', phrase: '이름이 뭐예요?', meaning: '처음 만난 사람의 이름을 물을 때 쓰는 표현이에요.', tip: '묻는 표현은 눈썹을 살짝 올리고 상대를 바라보며 끝맺어요.', words: ['이름', '무엇'] },
   { id: 'intro-home', topic: '소개', title: '사는 곳 묻기', phrase: '어디에 살아요?', meaning: '사는 동네를 물으며 대화를 이어갈 때 쓰는 표현이에요.', tip: '장소를 묻는 표현이라 끝에서 의문 표정을 분명히 해 보세요.', words: ['어디', '살다'] },
