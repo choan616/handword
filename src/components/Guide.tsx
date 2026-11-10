@@ -4,8 +4,8 @@ import { AttributionFull } from './Attribution'
 type Props = { onStart: () => void; onReset: () => void; hasProgress: boolean }
 const noticesUrl = 'https://github.com/choan616/handword/blob/main/THIRD_PARTY_NOTICES.md'
 const steps = [
-  { title: '노선에서 이번 역을 골라요', text: '단원은 노선, 표현은 역이에요. 이어서 배울 역은 노선 위에 "이번 역"으로 표시돼요.' },
-  { title: '보기: 낱말 영상을 차례로 봐요', text: '표현과 관련된 낱말 영상이 순서대로 재생돼요. 이번 역과 다음 역 낱말을 띠에서 확인해요.' },
+  { title: '노선에서 이번 역을 골라요', text: '단원은 노선, 상황은 역이에요. 이어서 배울 역은 노선 위에 "이번 역"으로 표시돼요.' },
+  { title: '보기: 낱말 영상을 차례로 봐요', text: '상황과 관련된 낱말 영상이 순서대로 재생돼요. 이번 역과 다음 역 낱말을 띠에서 확인해요.' },
   { title: '따라 하기와 고르기', text: '느린 속도로 따라 해 본 뒤, 영상을 보고 알맞은 뜻을 골라요.' },
   { title: '완료하면 다음 역으로', text: '완료한 역은 이 브라우저에 익힘으로 남고, 다음에는 다음 역부터 이어서 배워요.' },
 ]
@@ -19,7 +19,7 @@ export default function Guide({ onStart, onReset, hasProgress }: Props) {
     <section className="guide-block" aria-labelledby="guide-note">
       <h2 id="guide-note">알아두세요</h2>
       <p>수어는 지역·세대·개인에 따라 표현이 조금씩 다를 수 있어요. 이 서비스는 일상 대화 학습을 돕는 기초 안내이며, 실제 수어 사용자와의 소통과 전문 수업을 함께 권해요.</p>
-      <p>표현마다 보여 주는 낱말은 학습을 돕는 구성이에요. 실제 수어 문장은 낱말 순서와 표정, 시선에 따라 달라질 수 있어요.</p>
+      <p>상황마다 보여 주는 낱말은 학습을 돕는 구성이에요. 실제 수어 문장은 낱말 순서와 표정, 시선에 따라 달라질 수 있어요.</p>
       <p>수어 영상과 설명은 원문 그대로 표시해요. 여러 낱말은 영상을 합치지 않고 원본을 차례로 재생해요.</p>
     </section>
     <section className="guide-block" id="source" aria-labelledby="guide-source" tabIndex={-1}>

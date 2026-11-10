@@ -80,7 +80,7 @@ export const syllableExamples: SyllableExample[] = [
 ]
 const lessonStation = (id: string): Station => {
   const lesson = lessons.find((item) => item.id === id)!
-  return { id: lesson.id, title: lesson.phrase, sub: `${lesson.title} · 낱말 ${lesson.words.length}개`, words: lesson.words, question: '이 표현의 뜻은?', answer: lesson.phrase, meaning: lesson.meaning, tip: lesson.tip }
+  return { id: lesson.id, title: lesson.title, sub: lesson.words.join(' · '), words: lesson.words, question: '이 표현의 뜻은?', answer: lesson.phrase, meaning: `${lesson.meaning} 한국어로는 "${lesson.phrase}"처럼 말해요.`, tip: lesson.tip }
 }
 const letterStations = (kind: LetterFamily['kind']): Station[] => letterFamilies.filter((family) => family.kind === kind).map((family) => ({
   id: `letter-${family.id}`, title: family.label, sub: `손가락글자 · ${family.letters.length}개`, words: family.letters,
